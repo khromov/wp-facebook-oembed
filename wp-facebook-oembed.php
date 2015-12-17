@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Facebook oEmbed
-Version: 1.0
+Version: 1.1
 Author: khromov
 */
 
@@ -23,6 +23,6 @@ add_action('init', function() {
 	);
 
 	foreach($endpoints as $pattern => $endpoint) {
-		wp_oembed_add_provider( $pattern, $endpoint );
+		wp_oembed_add_provider( $pattern, $endpoint, true );
 	}
 });
