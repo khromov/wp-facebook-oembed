@@ -1,14 +1,15 @@
 <?php
 /*
 Plugin Name: Facebook oEmbed
-Version: 1.1
+Version: 1.1.1
 Author: khromov
 */
 
 /**
  * https://core.trac.wordpress.org/ticket/34737
  */
-add_action('init', function() {
+add_action( 'init', 'khromov_wp_facebook_oembed' );
+function khromov_wp_facebook_oembed() {
 
 	$endpoints = array(
 		'#https?://www\.facebook\.com/video.php.*#i'          => 'https://www.facebook.com/plugins/video/oembed.json/',
@@ -25,4 +26,4 @@ add_action('init', function() {
 	foreach($endpoints as $pattern => $endpoint) {
 		wp_oembed_add_provider( $pattern, $endpoint, true );
 	}
-});
+}
